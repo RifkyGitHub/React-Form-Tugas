@@ -71,6 +71,7 @@ function StepOne({ register, errors, trigger, setFocus, getError, onNext }) {
           {...register("email", {
             required: "Email wajib diisi.",
             pattern: {
+              value:/^[^\s@]+@[^\s@]+\.[^\s@]+$/,
               message: "Format email tidak valid.",
             },
           })}
@@ -101,8 +102,8 @@ function StepOne({ register, errors, trigger, setFocus, getError, onNext }) {
           {...register("no_telp", {
             required: "Nomor WhatsApp wajib diisi.",
             pattern: {
-              message:
-                "Nomor WhatsApp harus berupa angka dan bernilai 10-13 digit.",
+              value:/^[0-9]{10,13}$/,
+              message: "Nomor WhatsApp harus berupa angka dan bernilai 10-13 digit.",
             },
           })}
           id="no_telp"
